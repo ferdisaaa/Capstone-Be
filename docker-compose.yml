@@ -1,0 +1,18 @@
+
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: qalamku-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: qalamku_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - qalamku_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  qalamku_postgres_data:
